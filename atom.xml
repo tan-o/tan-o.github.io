@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>诗云水</title>
+  <title>诗云水 之 博客</title>
   
   
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2020-02-13T17:11:22.000Z</updated>
+  <updated>2020-02-23T15:07:54.005Z</updated>
   <id>/</id>
   
   <author>
@@ -17,13 +17,25 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>bangumi</title>
-    <link href="/2019/02/10/index/"/>
-    <id>/2019/02/10/index/</id>
-    <published>2019-02-10T13:32:48.000Z</published>
-    <updated>2020-02-13T17:11:22.000Z</updated>
+    <title>music</title>
+    <link href="/2020/02/20/index/"/>
+    <id>/2020/02/20/index/</id>
+    <published>2020-02-20T15:03:00.000Z</published>
+    <updated>2020-02-23T15:07:54.005Z</updated>
     
     <summary type="html">
+    
+      
+      
+        
+        
+          
+&lt;meting-js server=&quot;netease&quot; type=&quot;song&quot; id=&quot;1360122230&quot; mutex=&quot;true&quot;&gt;
+&lt;/meting-js&gt;
+
+&lt;meting-js server=&quot;netease&quot; type=&quot;song&quot; id=&quot;498373511&quot;
+        
+      
     
     </summary>
     
