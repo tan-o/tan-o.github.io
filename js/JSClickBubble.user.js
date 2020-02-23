@@ -64,7 +64,7 @@ onload = function() {
 		break;
             default:
 		// 手动更换下面这行双引号里面的内容 如"😀"
-                $elem.innerText = "❤";
+                $elem.innerText = "=￣ω￣=";
                 break;
         }
         $elem.style.fontSize = Math.random() * 10 + 8 + "px";
