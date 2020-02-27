@@ -9,5 +9,4 @@
 </script>
 <script src="assets/autoload.js"></script>
 <script src="js/JSClickBubble.user.js"></script>
-
 鼠标特效和live2d的配置和粒子配置和樱花飘落特效（感谢各位提供js的大老）
