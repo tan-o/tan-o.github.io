@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+  <title itemprop="name">C++ 学习笔记 | 细水长流 之 博客</title>
+  
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/tan-o/images@master//images_1_0/icon.jpg">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+SerifMerriweather|Merriweather+Sans|Source+Code+Pro|Ubuntu:400,700|Noto+Serif+SC" media="all">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<!--   <link rel="stylesheet" id="saukra_css-css" href="https://2heng.xin/wp-content/cache/autoptimize/css/autoptimize_ad42a61f4c7d4bdd9f91afcff6b5dda5.css
+" type="text/css" media="all"> -->
+  <script>
+  /*Initial Variables*/
+  var mashiro_option = new Object();
+  var mashiro_global = new Object();
+  mashiro_option.NProgressON = true;
+  /* 
+   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+   */
+  mashiro_option.email_domain = "";
+  mashiro_option.email_name = "";
+  mashiro_option.cookie_version_control = "";
+  mashiro_option.qzone_autocomplete = false;
+  mashiro_option.site_name = "细水长流~(￣▽￣)~*";
+  mashiro_option.author_name = "~(￣▽￣)~*";
+  mashiro_option.site_url = "https://tan-o.github.io";
+  mashiro_option.v_appId = "GyC3NzMvd0hT9Yyd2hYIC0MN-gzGzoHsz";
+  mashiro_option.v_appKey = "mgOpfzbkHYqU92CV4IDlAUHQ";
+  mashiro_option.mathjax = "0";
+  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
+  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  // mashiro_option.float_player_on = true;
+
+  /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+  var bg = "https://cdn.jsdelivr.net/gh/tan-o/images@master//images_1_0/bg_1.webp,https://cdn.jsdelivr.net/gh/tan-o/images@master//images_1_0/bg_2.webp,https://cdn.jsdelivr.net/gh/tan-o/images@master//images_1_0/bg_3.webp,images/bg4.webp".split(",");
+  var bgindex = Math.floor(Math.random()*bg.length);
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+    alert('朋友，IE浏览器未适配哦~');
+  }
+  </script>
+  <style type="text/css">
+  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
+  </style>
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  </style>
+</head>
+</html>
+<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <div class="scrollbar" id="bar">
+  </div>
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop filter-dim">
+  <div id="banner_wave_1"></div>
+  <div id="banner_wave_2"></div>
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a href="https://tan-o.github.io">
+          <img src="https://cdn.jsdelivr.net/gh/tan-o/images@master//images_1_0/E8.png">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>春秋同一月，九州不同人。</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+          
+            
+              
+                <li>
+                  <a href="https://github.com/tan-o" target="_blank" class="social-github" title="github">
+                    <img src="https://cdn.jsdelivr.net/gh/tan-o/images@master//images_1_0/github.svg">
+                  </a>
+                </li>
+              
+            
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style="">
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name="" src="" width="auto" preload="auto">
+    </video>
+    <div id="video-btn" class="loadvideo videolive">
+    </div>
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <header class="site-header no-select gizle sabit" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">细水长流</span>
+            <span class="shironeko">~(￣▽￣)~*</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+                    首页
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+                    归档
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/技术/">
+                          <i class="fa fa-code" aria-hidden="true"></i>
+                          技术
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/资源/">
+                          <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                          资源
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/转载/">
+                          <i class="fa fa-book" aria-hidden="true"></i>
+                          转载
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/lab/">
+                          <i class="fa fa-cogs" aria-hidden="true"></i>
+                          研究性学习
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="javascript:;">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+                    清单
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/tags/">
+                          <i class="fa fa-th-list faa-bounce" aria-hidden="true"></i>
+                          愿望
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/donate/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-heart faa-pulse" aria-hidden="true"></i>
+                    赞赏
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+                    关于
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/about/">
+                          <i class="fa fa-meetup" aria-hidden="true"></i>
+                          我？
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/theme-sakura/">
+                          <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                          主题
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+        <div class="pattern-center-blank"></div>
+  
+  <div id="content" class="site-content">
+    <article class="post-item post-301 page type-page status-publish has-post-thumbnail hentry">
+      <h1 id="C-学习笔记"><a href="#C-学习笔记" class="headerlink" title="C++ 学习笔记"></a>C++ 学习笔记</h1><h2 id="关于本人"><a href="#关于本人" class="headerlink" title="关于本人"></a>关于本人</h2><p>职业：学生一个</p>
+<p>本笔记乃本人有一些对C++学习的见解</p>
+<p>可能与正统有所不同</p>
+<p>-2020-3-13，注：本人已放弃竞赛，故再无更新，该笔记最后一次更新为：2019-xx-xx(忘了…)</p>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>[TOC]</p>
+<h2 id="一些小工具"><a href="#一些小工具" class="headerlink" title="一些小工具"></a>一些小工具</h2><h3 id="书籍"><a href="#书籍" class="headerlink" title="书籍"></a>书籍</h3><p><a href="/learn/-C++-/C++ Primer 3rd Edition 中文版.pdf">C++ Primer 3rd </a> 、 <a href="/learn/-C++-/C++数据结构与算法(高清">C++数据结构与算法</a>.pdf )</p>
+<h3 id="有用的网站"><a href="#有用的网站" class="headerlink" title="有用的网站"></a>有用的网站</h3><p><a href="/learn/-C++-/查表/main/commons-type=4.htm">ascii表查询</a> 、<a href="/learn/-C++-/c_teach/runoob/c-tutorial.html">C语言</a> 、 <a href="/learn/-C++-/c++_teach/c++_runoob/cpp-tutorial.html">C++语言</a>  、 <a href="/learn/-C++-/Linux_teach/Linux_runoob/linux-tutorial.html">linux</a> </p>
+<h2 id="关于-对C-学习-的笔记"><a href="#关于-对C-学习-的笔记" class="headerlink" title="关于 对C++学习 的笔记"></a>关于 对C++学习 的笔记</h2><h3 id="动态内存"><a href="#动态内存" class="headerlink" title="动态内存"></a>动态内存</h3><h4 id="关于对动态内存的一些见解"><a href="#关于对动态内存的一些见解" class="headerlink" title="关于对动态内存的一些见解"></a>关于对动态内存的一些见解</h4><p>动态内存，按我的理解就是：可以随用户的需要，<br>数组开多大就开多大，不用预设开100000000000…，<br>然后就炸了…………<br>所以，这时候需要动态内存！<br>（当然，也要取决于你的电脑的内存大小……） </p>
+<h4 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h4><pre><code class="c++">#include&lt;iostream&gt;
+</code></pre>
+<h4 id="主函数"><a href="#主函数" class="headerlink" title="主函数"></a>主函数</h4><pre><code class="c++">int main()
+{
+    int n=0;
+    cout&lt;&lt;&quot;请选择几维动态内存：&quot;;
+    cin&gt;&gt;n;
+    switch(n) {
+        case 1:
+            One_dimensional_Array();
+            break;
+        case 2:
+            Two_dimensional_Array();
+            break;
+        case 3:
+            Three_dimensional_Array();
+            break;
+    }
+    return 0;
+}
+</code></pre>
+<h4 id="1-申请一维数组"><a href="#1-申请一维数组" class="headerlink" title="1. 申请一维数组"></a>1. 申请一维数组</h4><pre><code class="c++">//申请一维数组的动态内存： 
+int One_dimensional_Array() {
+    int size;        //申请的空间大小； 
+    cout&lt;&lt;&quot;请输入申请空间的大小：&quot;;
+    cin&gt;&gt;size;
+    int *array=new int [size];        //为int型的变量请求空间； 
+    if(!(array=new int [size])) {       //判断是否成功分配内存； 
+        cout&lt;&lt;&quot;Error: out of memory!&quot;&lt;&lt;endl;
+        exit(1);      //正常为0，错误为1||-1，找不到文件为2； 
+    }
+    cout&lt;&lt;&quot;请输入数据：&quot;&lt;&lt;endl; 
+    for(int i=0;i&lt;size;i++) cin&gt;&gt;array[i];      //两种读入数据相同，一个是用数组 
+    for(int i=0;i&lt;size;i++) cout&lt;&lt;*(array+i);  //这里的是用指针
+    delete [] array;                          //释放内存； 
+    return 0;
+}
+</code></pre>
+<h4 id="2-申请二维数组"><a href="#2-申请二维数组" class="headerlink" title="2. 申请二维数组"></a>2. 申请二维数组</h4><pre><code class="c++">//申请二维数组的动态内存：
+int Two_dimensional_Array() {
+//在菜鸟教程上的解释：假定数组第一维长度为 m， 第二维长度为 n
+//而我的理解是： 其实就是类同于二维数组的x,y轴
+//（当然，在计算机中的储存一样是跟一维数组一样……） 
+    int size_x,size_y;
+    cout&lt;&lt;&quot;请输入x轴与y轴的大小：&quot;;  //其实也就是一维的长度与二维的长度； 
+    cin&gt;&gt;size_x&gt;&gt;size_y;
+    int **array;      //指针的指针； 
+    array=new int *[size_x]; 
+//其实就是size_x * size_y 也就是：array[size_x][size_y]
+//也就是变量的个数的定义等同于二维数组；  
+    for(int i=0;i&lt;size_x;i++) array[i]=new int [size_y];  //申请完成
+    cout&lt;&lt;&quot;请输入数据：&quot;; 
+    for(int i=0;i&lt;size_x;i++)
+    for(int j=0;j&lt;size_y;j++)
+    cin&gt;&gt;array[i][j]; 
+    for(int i=0;i&lt;size_x;i++) 
+    for(int j=0;j&lt;size_y;j++) 
+    cout&lt;&lt;array[i][j]; 
+    for(int i=0;i&lt;size_x;i++) delete [] array[i];   //先释放二维的；
+    delete [] array;     //再释放一维的；
+    return 0; 
+} 
+</code></pre>
+<h4 id="3-申请三维数组"><a href="#3-申请三维数组" class="headerlink" title="3. 申请三维数组"></a>3. 申请三维数组</h4><pre><code class="c++">//申请三维数组的动态内存：
+int Three_dimensional_Array() {
+    int size_x=0,size_y=0,size_z=0;
+    cout&lt;&lt;&quot;请输入x,y,z轴的大小：&quot;;
+    cin&gt;&gt;size_x&gt;&gt;size_y&gt;&gt;size_z;
+    int ***array;  //指针的指针的指针
+    array=new int **[size_x];
+//一层一层的申请空间： 
+    for(int i=0;i&lt;size_x;i++) {
+        array[i]=new int *[size_y];
+        for(int j=0;j&lt;size_y;j++) array[i][j]=new int [size_z];
+    } 
+    cout&lt;&lt;&quot;请输入数据：&quot;;
+    for(int x=0;x&lt;size_x;x++)
+        for(int y=0;y&lt;size_y;y++)
+            for(int z=0;z&lt;size_z;z++)
+                cin&gt;&gt;array[x][y][z];
+    for(int x=0;x&lt;size_x;x++)
+        for(int y=0;y&lt;size_y;y++)
+            for(int z=0;z&lt;size_z;z++)
+            cout&lt;&lt;array[x][y][z];
+//层层释放：
+    for(int i=0;i&lt;size_x;i++) {
+        for(int j=0;j&lt;size_y;j++) delete array[i][j];
+    } 
+    delete [] array;
+    return 0;
+} 
+</code></pre>
+<h4 id="骚操作：降维打击"><a href="#骚操作：降维打击" class="headerlink" title="骚操作：降维打击"></a>骚操作：降维打击</h4><pre><code class="c++">降维打击： //用一个for循环输出一个二维数组
+int *temporary = (int *)array; //把变量array强制转换成指针类型（骚操作…………） 
+for(int i=0;i&lt;size_x*size_y;i++) cout&lt;&lt;*(temporary+i)&lt;&lt;&#39; &#39;; 
+打击成功
+</code></pre>
+<p><a href="#目录">返回目录</a></p>
+<h3 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h3><h4 id="头文件-1"><a href="#头文件-1" class="headerlink" title="头文件"></a>头文件</h4><pre><code class="c++">#include&lt;iostream&gt;
+</code></pre>
+<p>首先定义一个结构体：</p>
+<pre><code class="c++">    struct node {
+      int data;
+      node *next;
+    }*h,*p,*r; 
+    //头链表（*h）、指针（pointer）：p（工作指针）、r（尾指针）；
+</code></pre>
+<p>然后利用结构体定义各种操作 ：</p>
+<pre><code class="c++">        node *createlist(int total);//创建    //指针型函数  
+        node *putlist(node *h);//输出链表       //返回的是指针； 
+        node *delete_ordinal(node *h,int); //删除第几个表 
+        node *delete_aims(node *h,int);//删除指定数据
+        node *insert_list(node *h,int);//插入数据
+</code></pre>
+<h4 id="主函数-1"><a href="#主函数-1" class="headerlink" title="主函数"></a>主函数</h4><pre><code class="c++">int main()
+{
+    node *h;
+    int total=0,n=0,i=0;
+    cin&gt;&gt;total;
+    h=createlist(total);     //把头链表的地址存起来； 
+    cout&lt;&lt;&quot;对链表的操作(0|1|2|3)：&quot;;
+    cin&gt;&gt;n;
+    switch(n) {
+        case 0:
+            cout&lt;&lt;&quot;请输入要删第几个表：&quot;;
+            cin&gt;&gt;i;
+            h=delete_ordinal(h,i);
+            break;
+        case 1:
+            cout&lt;&lt;&quot;请输入要删除的元素：&quot;;
+            cin&gt;&gt;i;
+            h=delete_aims(h,i);
+            break;
+        case 2:
+            cout&lt;&lt;&quot;请输入你要插入的数据：&quot;;
+            cin&gt;&gt;i; 
+            h=insert_list(h,i);
+            break;
+        case 3:
+            cout&lt;&lt;&quot;什么都不做……&quot;&lt;&lt;endl;
+            system(&quot;pause&quot;);
+            break;
+    }
+    putlist(h);                 //把头链表的地址传递给putlist(); 
+    system(&quot;pause&quot;);
+    return 0;
+}
+</code></pre>
+<h4 id="1-创建"><a href="#1-创建" class="headerlink" title="1. 创建"></a>1. 创建</h4><pre><code class="c++">//创建链表：
+node *createlist(int total) {
+    int num=0;
+    if(total&lt;=0) return NULL;
+    r=new node;                //申请动态内存， 
+    h=r;                   //头链表一般不用，但它是一个链表开头的地址，可以通过访问它以访问其他表；
+    for(int i=0;i&lt;total;i++) {
+        cin&gt;&gt;num;            //读入数据； 
+        p=new node;         //每一次循环都申请一次动态内存，等于下一个链表； 
+        p-&gt;data=num;        //存入数据； 
+        r-&gt;next=p;            // 把下一个表的地址存起来； 
+        r=p;                // 尾指针指向刚刚 工作指正的地址，工作指针指向下一个表 （等于回到循环开头）；  
+    } 
+    r-&gt;next=NULL;           //当尾指针指向NULL（空）时，链表结束； 
+    return (h);                //传回头链表的地址，以方便其他函数访问链表； 
+}
+</code></pre>
+<h4 id="2-输出"><a href="#2-输出" class="headerlink" title="2. 输出"></a>2. 输出</h4><pre><code class="c++">//输出链表：
+node *putlist(node *h) {    //通过头链表， 
+    node *p=h-&gt;next;        //找到其他表；  
+    while(p!=NULL) {        //直到链表为空； 
+        cout&lt;&lt;p-&gt;data&lt;&lt;&#39; &#39;;    //输出数据； 
+        p=p-&gt;next;            //继续寻找下一个表； 
+    }
+    cout&lt;&lt;endl;
+}
+</code></pre>
+<h4 id="3-删除"><a href="#3-删除" class="headerlink" title="3. 删除"></a>3. 删除</h4><blockquote>
+<h5 id="删除第几个表："><a href="#删除第几个表：" class="headerlink" title="删除第几个表："></a>删除第几个表：</h5></blockquote>
+<pre><code class="c++">//删除第几个表：
+node *delete_ordinal(node *h,int ordinal) {
+     int i=1;
+     node *p=h-&gt;next;
+     node *r;
+     while(p!=NULL) {
+         if(i==ordinal) {
+             p=p-&gt;next-&gt;next;
+             break;
+         }
+         p=p-&gt;next;
+         i++;
+     }
+     return (h);
+}
+</code></pre>
+<blockquote>
+<h5 id="删除指定数据："><a href="#删除指定数据：" class="headerlink" title="删除指定数据："></a>删除指定数据：</h5></blockquote>
+<pre><code class="c++">//删除指定数据：
+node *delete_aims(node *h,int aims) {
+
+} 
+</code></pre>
+<h4 id="4-插入"><a href="#4-插入" class="headerlink" title="4. 插入"></a>4. 插入</h4><pre><code class="c++">//插入数据：
+node *insert_list(node *h,int data) {
+
+} 
+</code></pre>
+<p><a href="#目录">返回目录</a></p>
+<h3 id="C-的标准模板-与-stl（面向对象）"><a href="#C-的标准模板-与-stl（面向对象）" class="headerlink" title="C++的标准模板 与 stl（面向对象）"></a>C++的标准模板 与 stl（面向对象）</h3><!--  有了STL，不必再从头写大多的标准数据结构和算法，并且可获得非常高的性能。-->
+<blockquote>
+<h4 id="namespace-命名空间"><a href="#namespace-命名空间" class="headerlink" title="namespace(命名空间)"></a>namespace(命名空间)</h4></blockquote>
+<p><strong>现在的软件多以程序庫、模块、组件拼凑而成，名称冲突问题越来越严重。Namespace就是用来解决此问题的。 Namespace将不同的标识符号集合在一个具体的名称范围内。</strong></p>
+<h4 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h4><h5 id="头文件-2"><a href="#头文件-2" class="headerlink" title="头文件"></a>头文件</h5><pre><code class="c++">#include&lt;iostream&gt;
+</code></pre>
+<h5 id="模板的格式"><a href="#模板的格式" class="headerlink" title="模板的格式"></a>模板的格式</h5><p>比较两个数，取最大：</p>
+<pre><code class="c++">template&lt;class T&gt; //标准格式，“T”可以任取
+T max(T a[],int n) //类似于自定义函数，按我理解，class 的意义在于可自动识别变量类型
+{
+  int i;
+  T maxv=a[0];
+  for(i=1;i&lt;n;i++) {
+    if(maxv&lt;a[i]) maxv=a[i];
+  }
+  return maxv;
+}
+</code></pre>
+<h5 id="主函数-2"><a href="#主函数-2" class="headerlink" title="主函数"></a>主函数</h5><pre><code class="c++">int main()
+{
+    int a[10001];
+  double b[10001];
+  int num;
+  cin&gt;&gt;num;
+  for(int i=0;i&lt;num;i++) 
+        cin&gt;&gt;a[i]&gt;&gt;b[i];        
+  cout&lt;&lt;max(a,num)&lt;&lt;&#39; &#39;&lt;&lt;max(b,num); //与调用函数类似
+  return 0;
+}
+</code></pre>
+<h5 id="模板的总结"><a href="#模板的总结" class="headerlink" title="模板的总结"></a>模板的总结</h5><p>C++功能强大，为开发者提供了标准模板库，其中封装了很多实用的容器。容器可以理解成能够实现很多功能的系统函数，或者说用来存放数据的对象，开发者可以根据接口规范（调用格式）直接调用，而不用关心其内部实现的原理和具体代码，十分方便快捷。</p>
+<h4 id="STL包含六大组件："><a href="#STL包含六大组件：" class="headerlink" title="STL包含六大组件："></a>STL包含六大组件：</h4><p>容器（container）、算法（algorithm）、迭代器（iterator）、配置器（allocator）、适配器（adapter）和函数对象（functionobject）。我们在学习这些组件时，应该按其重要程度来区别学习。重要成都由大到小是：泛型容器和泛型算法（表示任何类型和对象都可以使用这些容器和算法）&gt;&gt;迭代器&gt;&gt;配置器、适配器、函数对象。</p>
+<h4 id="STL的各部分作用是"><a href="#STL的各部分作用是" class="headerlink" title="STL的各部分作用是"></a>STL的各部分作用是</h4><p> 1）为了方便地存储数据，设计了容器；  </p>
+<p> 2）为了方便地遍历、查找、替换容器中的元素，设计了算法；    </p>
+<p> 3）为了方便地让容器、算法独立工作，设计了在二者之间起桥梁作用的迭代器；    </p>
+<p> 4）为了统一分配和控制容器中的内存，设计了配置器； </p>
+<p> 5）为了更好地给算法传入参数，设计了函数对象；      </p>
+<p> 6）为了更好地扩展STL现有的接口，设计了适配器。  </p>
+<h5 id="vector-向量"><a href="#vector-向量" class="headerlink" title="vector (向量)"></a>vector (向量)</h5><p>​        <strong>vector</strong> 直接翻译为“向量”，一般说成“变长数组”，也即“长度根据需要而自动改变的数组。</p>
+<h6 id="头文件-3"><a href="#头文件-3" class="headerlink" title="头文件"></a>头文件</h6><pre><code class="c++">#include&lt;vector&gt;
+</code></pre>
+<h5 id="stack-栈"><a href="#stack-栈" class="headerlink" title="stack (栈)"></a>stack (栈)</h5><h6 id="头文件-4"><a href="#头文件-4" class="headerlink" title="头文件"></a>头文件</h6><pre><code class="c++">#include&lt;stack&gt;
+</code></pre>
+<p><a href="#目录">返回目录</a></p>
+
+      <!-- .entry-content -->
+      
+      <div class="single-reward">
+        <div class="reward-open">赏
+          <div class="reward-main">
+            <ul class="reward-row">
+              <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/tan-o/images@master//images_1_0/alipay_QR.png"></li>
+              <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/tan-o/images@master//images_1_0/WeChat_pay.png"></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+      <footer class="post-footer">
+        <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+        <div class="post-tags">
+        </div>
+        <div class="post-share">
+          <div class="social-share sharehidden share-component"></div>
+          <i class="iconfont show-share icon-forward"></i>
+        </div>
+      </footer><!-- .entry-footer -->
+    </article>
+      <!-- #post-## -->
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <a href="/about/" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/tan-o/images@master//images_1_0/E8.png" itemprop="image" alt="~(￣▽￣)~*" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="https://tan-o.github.io" itemprop="url" rel="author">~(￣▽￣)~*</a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i>春秋同一月，九州不同人。</p>
+      </section>
+  </div><!-- #primary -->
+</div>
+    </div>    
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <!-- <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 细水长流<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer> -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+  <div class="site-info">
+    <div class="footertext">
+      <div class="img-preload">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/wordpress-rotating-ball-o.svg">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/disqus-preloader.svg">
+      </div>
+      <p style="color: #666666;">&copy 2018</p>
+    </div>
+    <div class="footer-device">
+    <p style="font-family: 'Ubuntu', sans-serif;">
+        <span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>, Powered by Hexo, Hosted by Coding Pages</a>
+        </span>
+      </p>
+    </div>
+  </div><!-- .site-info -->
+</footer>
+
+
+
+<!-- <script src="/js/tocbot.js"></script> -->
+<script type="text/javascript" src="/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine@1.3.4/dist/Valine.min.js'></script>
+<script src="/js/botui.js"></script>
+<!-- 不蒜子 网页计数器 -->
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script> -->
+<script type="text/javascript">
+/* <![CDATA[ */
+if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+} else {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+}
+/* ]]> */
+
+</script>
+<script>
+$(document).ready(function() {
+  if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+    if ($(".pattern-center").length > 0) { //有图的情况
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -400,
+          scrollSmoothOffset: -85
+      });
+    } else {
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -85,
+          scrollSmoothOffset: -85
+      });
+    }
+    var offsetTop = $('.toc').offset().top - 95;
+    window.onscroll = function() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop >= offsetTop) {
+        $('.toc').addClass('toc-fixed');
+      } else {
+        $('.toc').removeClass('toc-fixed');
+      }
+    }
+  }
+});
+</script>
+
+    <div class="openNav no-select" style="height: 50px;">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section>
+  <div id="mo-nav" class="">
+  <div class="m-avatar">
+    <img src="https://cdn.jsdelivr.net/gh/tan-o/images@master//images_1_0/E8.png">
+  </div>
+  <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">细水长流~(￣▽￣)~*</p>
+  <p style="text-align: center; word-spacing: 20px;">
+    
+      
+        <a href="https://github.com/tan-o" class="fa fa-github" target="_blank" style="color: #333; margin-left:20px"></a>
+      
+    
+  </p>
+  <ul id="menu-new-1" class="menu">
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+            首页
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/archives">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+            归档
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/categories/技术/">
+                  <i class="fa fa-code" aria-hidden="true"></i>
+                  技术
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/资源/">
+                  <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                  资源
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/转载/">
+                  <i class="fa fa-book" aria-hidden="true"></i>
+                  转载
+                </a>
+              </li>
+            
+              <li>
+                <a href="/lab/">
+                  <i class="fa fa-cogs" aria-hidden="true"></i>
+                  研究性学习
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="javascript:;">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+            清单
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/tags/">
+                  <i class="fa fa-th-list faa-bounce" aria-hidden="true"></i>
+                  愿望
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/donate/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-heart faa-pulse" aria-hidden="true"></i>
+            赞赏
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+            关于
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/about/">
+                  <i class="fa fa-meetup" aria-hidden="true"></i>
+                  我？
+                </a>
+              </li>
+            
+              <li>
+                <a href="/theme-sakura/">
+                  <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                  主题
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+  </ul>
+  <p style="text-align: center; font-size: 13px; color: #b9b9b9;">&copy 2019 hexo-sakura</p>
+</div>
+<button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<!-- require MetingJS -->
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+<style>
+  .aplayer .aplayer-lrc {
+    height: 35px;
+  }
+  .aplayer .aplayer-lrc p{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px !important;
+  }
+  .aplayer .aplayer-lrc p.aplayer-lrc-current{
+    color: #FF1493;
+  }
+  .aplayer.aplayer-narrow .aplayer-body{
+    left: -66px !important;
+  }
+  .aplayer.aplayer-fixed .aplayer-lrc {
+    display: none;
+  }
+  .aplayer .aplayer-lrc.aplayer-lrc-hide {
+      display:none !important;
+  }
+  .aplayer.aplayer-fixed .lrc-show {
+    display: block;
+    background: rgba(255, 255, 255, 0.8);
+  }
+</style>
+<meting-js
+
+    id="487587911"
+
+    server="netease"
+
+    type="song"
+
+    fixed="true"
+
+    autoplay="false"
+
+    loop="all"
+
+    order="random"
+
+    preload="auto"
+
+    volume="0.7"
+
+    mutex="true"
+
+</meting-js>
+<script>
+  $(function(){
+    $('body').on('click', '.aplayer', function(){
+      if($('.aplayer-button').hasClass('aplayer-play')) {
+        $('.aplayer-lrc').removeClass('lrc-show');
+      } else {
+        $('.aplayer-lrc').addClass('lrc-show');
+      }
+    })
+  });
+</script>
+</body>
+</html>
