@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>SiWantin&#39;s Note</title>
-    <link>https://tan-o.github.io/note/</link>
+    <link>https://tan-o.github.io/</link>
     <description>Recent content on SiWantin&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language><atom:link href="https://tan-o.github.io/note/index.xml" rel="self" type="application/rss+xml" />
+    <language>zh-cn</language><atom:link href="https://tan-o.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>🙋🏻‍♂️关于</title>
-      <link>https://tan-o.github.io/note/about/</link>
+      <link>https://tan-o.github.io/about/</link>
       <pubDate>Wed, 30 Aug 2023 17:43:28 +0800</pubDate>
       
-      <guid>https://tan-o.github.io/note/about/</guid>
+      <guid>https://tan-o.github.io/about/</guid>
       <description>关于我 只不过是凡人中最平凡的一个</description>
     </item>
     
